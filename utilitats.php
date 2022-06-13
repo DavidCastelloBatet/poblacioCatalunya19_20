@@ -12,9 +12,10 @@ function html_escape(string $string) : string {
 
 
 // funcio per 
-function disconnect ( $pdo, $statment ) {
+function disconnect ( $pdo, $statment, $statment_poblacions ) {
   global $pdo, $stmt;
   $statment->closeCursor(); // opcional segons versio bbdd
+  $statment_poblacions = null; // destrueixo el vincul a les dades
   $statment = null; // destrueixo el víncul a les dades
   $pdo = null; // tanco la conexio a la base de dades
 }

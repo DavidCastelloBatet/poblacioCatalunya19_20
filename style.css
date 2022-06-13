@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 .taula {
@@ -36,4 +38,8 @@ header {
 
 nav {
   text-align: center;
+}
+
+nav li a {
+  color: #bfe2e9;
 }
