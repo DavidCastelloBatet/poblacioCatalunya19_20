@@ -30,6 +30,10 @@ header {
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  margin: 20px 20vw;
-  padding: 20px;
+  margin: 5px 20vw;
+  padding: 5px;
+}
+
+nav {
+  text-align: center;
 }
