@@ -24,3 +24,5 @@ try{
 } catch (PDOException $e) {
   throw new PDOexception($e->getMessage(), $e->getCode());  // gestiono l'error
 }
+
+// DSN, Data Source Name en inglés
