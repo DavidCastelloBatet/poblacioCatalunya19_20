@@ -15,7 +15,7 @@
           <td> <?= html_escape($poblacio['any']) ?> </td>
           <td> <?= html_escape($poblacio['nom_poblacio']) ?> </td>
           <td> <?= html_escape($poblacio['codi_poblacio']) ?> </td>
-          <td> <a href="detallPoble.php" target="_link"><button type="button">+INFO</button></a> </td>
+          <td> <a href="detallPoble.php?id=<?= $poblacio['id'] ?> & poblacio=<?= $poblacio['nom_poblacio'] ?>" target="_link"><button type="button">+INFO</button></a> </td>
 
         </tr>
       <?php }  ?>
