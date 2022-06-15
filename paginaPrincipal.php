@@ -8,8 +8,17 @@
       </button>
     </p>
     <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-        Espai pels formularis dels filtres
+      <div class="card card-body bg-light">
+        Espai pels formularis dels filtres - NO TOCAR DE MOMENT !!!!!
+        <!-- https://getbootstrap.com/docs/5.0/forms/floating-labels/ -->
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+            <option selected>Tots</option>
+            <option value="1">2019</option>
+            <option value="2">2020</option>
+          </select>
+          <label for="floatingSelectGrid">Seleccionar Any</label>
+        </div>
       </div>
     </div>
   </div>
@@ -38,6 +47,7 @@
   </table>
   
   <!-- Estructura i css paginacio creada amb bootstrap 5-->
+  ULL - Revisar paginacio per poder posar-ho tot!!!!
   <nav>
     <ul class="pagination">
       <!-- Aplico la clase de bootstrap disabled quan la pagina es igual o inferior a 1
