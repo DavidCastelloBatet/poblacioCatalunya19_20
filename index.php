@@ -5,7 +5,7 @@ include 'utilitats.php';
 
 $sql = "SELECT  *
         FROM poblacio_cat_edat_sexe
-        limit 50; ";
+        limit 100; ";
 
 $statment = $pdo->query($sql);
 // Es fa servir per retornar un element

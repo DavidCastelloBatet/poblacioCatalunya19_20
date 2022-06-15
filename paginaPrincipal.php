@@ -1,4 +1,19 @@
+
 <div class="taula">
+
+  <div class="filtres">
+    <p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        FILTRES
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        Espai pels formularis dels filtres
+      </div>
+    </div>
+  </div>
+
 
   <table class="table table-striped table-hover ">
     <tr class="table-info">
