@@ -1,6 +1,6 @@
 
 <div class="taula">
-
+  <!-- ESPAI PELS FILTRES -->
   <div class="filtres">
     <p>
       <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -24,30 +24,9 @@
   </div>
 
 
-  <table class="table table-striped table-hover ">
-    <tr class="table-info">
-      <th>ID</th>
-      <th>ANY</th>
-      <th>NOM DE LA POBLACIO</th>
-      <th>CODI</th>
-      <th>+ Info</th>
-    </tr>
-    <?php foreach($resultat_poblacions as $poblacio) { ?>
-        <tr>
-
-          <td> <?= html_escape($poblacio['id']) ?> </td>
-          <td> <?= html_escape($poblacio['any']) ?> </td>
-          <td> <?= html_escape($poblacio['nom_poblacio']) ?> </td>
-          <td> <?= html_escape($poblacio['codi_poblacio']) ?> </td>
-          <td> <a href="detallPoble.php?id=<?= $poblacio['id'] ?> & poblacio=<?= $poblacio['nom_poblacio'] ?>" target="_link"><button type="button">+INFO</button></a> </td>
-
-        </tr>
-      <?php }  ?>
-
-  </table>
-  
+    <!-- PAGINACIO-->
   <!-- Estructura i css paginacio creada amb bootstrap 5-->
-  ULL - Revisar paginacio per poder posar-ho tot!!!!
+
   <nav>
     <ul class="pagination">
       <!-- Aplico la clase de bootstrap disabled quan la pagina es igual o inferior a 1
@@ -80,8 +59,33 @@
     </ul>
   </nav>
 
-  
-  
+  <!-- TAULA PER MOSTRAR POBLACIONS -->
+  <table class="table table-striped table-hover ">
+    <tr class="table-info">
+      <th><input type="checkbox" name="seleccionarTot"></th>
+      <th>ID</th>
+      <th>ANY</th>
+      <th>NOM DE LA POBLACIO</th>
+      <th>CODI</th>
+      <th>+ Info</th>
+    </tr>
+    <?php foreach($resultat_poblacions as $poblacio) { ?>
+        <tr>
+
+          <td> <input type="checkbox" name="seleccionar"> </td>
+          <td> <?= html_escape($poblacio['id']) ?> </td>
+          <td> <?= html_escape($poblacio['any']) ?> </td>
+          <td> <?= html_escape($poblacio['nom_poblacio']) ?> </td>
+          <td> <?= html_escape($poblacio['codi_poblacio']) ?> </td>
+          <td> <a href="detallPoble.php?id=<?= $poblacio['id'] ?> & poblacio=<?= $poblacio['nom_poblacio'] ?>" target="_link"><button type="button">+INFO</button></a> </td>
+
+        </tr>
+      <?php }  ?>
+
+  </table>
+
+
+
 </div>
 
 

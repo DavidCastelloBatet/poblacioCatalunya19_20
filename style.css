@@ -37,9 +37,11 @@ header {
 }
 
 nav {
-  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
-nav ul li a {
+a {
   color: #bfe2e9;
 }

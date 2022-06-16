@@ -4,8 +4,7 @@ include 'conexioBBDD.php';
 include 'utilitats.php';
 
 $sql = "SELECT  *
-        FROM poblacio_cat_edat_sexe
-        limit 100; ";
+        FROM poblacio_cat_edat_sexe; ";
 
 $statment = $pdo->query($sql);
 // Es fa servir per retornar un element
@@ -18,7 +17,7 @@ $poblacions = $statment->fetchAll();
 
 // LOGICA PAGINACIO
 // Quantitat de poblacions mostrades x pagina
-$poblacionsPerPagina = 10; 
+$poblacionsPerPagina = 75; 
 // averiguo el total de poblacions que em retorna la query
 $totalPoblacions = $statment->rowCount();
 // calculo les pàgines i redondejo cap amunt
@@ -45,11 +44,11 @@ $resultat_poblacions = $statment_poblacions->fetchAll();
 
 
 // VISUALITZACIO DE LA PAGINA
-include 'header.php';
+include ('header.php');
 
 (!$poblacions) ? include 'informacio-no-trobada.php' : include 'paginaPrincipal.php';
 
-include 'footer.php';
+include ('footer.php');
 
 
 

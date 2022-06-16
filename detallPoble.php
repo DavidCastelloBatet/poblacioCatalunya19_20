@@ -10,7 +10,7 @@ $nomRebut = $_GET['poblacio'];
 
 
 // query
-$sql_poblacions_detall = 'SELECT * FROM poblacio_cat_edat_sexe LIMIT 100';
+$sql_poblacions_detall = 'SELECT * FROM poblacio_cat_edat_sexe';
 $statment_poblacions_detall = $pdo->query($sql_poblacions_detall);
 $resultat_poblacions_detall = $statment_poblacions_detall->fetchAll();
 
