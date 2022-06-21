@@ -3,8 +3,15 @@
 include 'conexioBBDD.php';
 include 'utilitats.php';
 
-$anyRebut = $_GET['any'] ?? 2019;
-var_dump($_GET);
+session_start(); // Inici de sesió
+$anyRebut = $_SESSION['any'] ?? 2019; //  inicialitzo variable
+
+if (isset($_GET['any'])){ // actualitza variable amb el valor
+  $_SESSION['any'] = $_GET['any']; // que m'arriva x GET
+}
+
+//$anyRebut = $_GET['any'] ?? 2019;
+
 
 $sql = "SELECT  * FROM poblacio_cat_edat_sexe WHERE any = $anyRebut; ";
 $statment = $pdo->query($sql);
@@ -20,6 +27,7 @@ $poblacionsPerPagina = 75;
 $totalPoblacions = $statment->rowCount();
 // calculo les pàgines i redondejo cap amunt
 $pagines = ceil($totalPoblacions / $poblacionsPerPagina);
+
 // faig que al carregar sempre hi hagi una pagina activa
 if(!$_GET){
   header('Location:index.php?pagina=1');
@@ -28,16 +36,19 @@ if(!$_GET){
 if($_GET['pagina'] > $poblacionsPerPagina || $_GET['pagina'] <= 0) {
   header('Location:index.php?pagina=1');
 }
+
 // calcul de la variable pel canvi de pàgina  !!ull tornar a revisasr !!!
-$inici = ($_GET['pagina'] - 1) * $poblacionsPerPagina;
 // https://www.youtube.com/watch?v=tRUg2fSLRJo   revisar!!!!!!!
+$inici = ($_GET['pagina'] - 1) * $poblacionsPerPagina;
+
+// crear query dinàmica
 $sql_poblacions = 'SELECT * FROM poblacio_cat_edat_sexe where any = :anyRebut LIMIT :inici , :poblacionsPerPagina ';
 $statment_poblacions = $pdo->prepare($sql_poblacions);
 $statment_poblacions->bindParam(':anyRebut', $anyRebut, PDO::PARAM_INT);
 $statment_poblacions->bindParam(':inici', $inici, PDO::PARAM_INT);
 $statment_poblacions->bindParam(':poblacionsPerPagina', $poblacionsPerPagina, PDO::PARAM_INT);
 $statment_poblacions->execute();
-
+// resultat despres query
 $resultat_poblacions = $statment_poblacions->fetchAll();
 
 
@@ -46,6 +57,8 @@ $resultat_poblacions = $statment_poblacions->fetchAll();
 disconnect ( $pdo, $statment, $statment_poblacions );
 ?>
 
+
+<!-- ESPAI HTML - MOSTRAR DADES-->
 <?php include 'header.php' ?>
 
 <main>
@@ -61,13 +74,10 @@ disconnect ( $pdo, $statment, $statment_poblacions );
       </p>
       <div class="collapse" id="collapseExample">
         <div class="card card-body bg-light">
-          Espai pels formularis dels filtres - NO TOCAR DE MOMENT !!!!!
           <!-- https://getbootstrap.com/docs/5.0/forms/floating-labels/ -->
 
 
-
-
-          <form action="index.php?pagina=1" method="GET">
+          <form action="index.php" method="GET">
             <div class="form-floating">
               <select class="form-select" id="seleccioAny" name="any">
                 <option value="2019">2019</option>

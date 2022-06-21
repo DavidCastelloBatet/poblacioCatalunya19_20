@@ -11,7 +11,7 @@ function html_escape(string $string) : string {
 }
 
 
-// funcio per destruir vincul a les dades i tanco la conexio
+// funcio per destruir vincul a les dades i tanco la conexio - ull revissar 21/6/22 !!!!
 function disconnect ( $pdo, $statment, $statment_poblacions,  ) {
   global $pdo, $stmt;
   $statment->closeCursor(); // opcional segons versio bbdd
